@@ -1,0 +1,76 @@
+/*************************************************** 
+  This is an example for the Adafruit Thermocouple Sensor w/MAX31855K
+  Designed specifically to work with the Adafruit Thermocouple Sensor
+  ----> https://www.adafruit.com/products/269
+  These displays use SPI to communicate, 3 pins are required to  
+  interface
+  Adafruit invests time and resources providing this open source code, 
+  please support Adafruit and open-source hardware by purchasing 
+  products from Adafruit!
+  Written by Limor Fried/Ladyada for Adafruit Industries.  
+  BSD license, all text above must be included in any redistribution
+ ****************************************************/
+
+#include <SPI.h>
+#include "Adafruit_MAX31855.h"
+
+// Default connection is using software SPI, but comment and uncomment one of
+// the two examples below to switch between software SPI and hardware SPI:
+
+// Example creating a thermocouple instance with software SPI on any three
+// digital IO pins.
+#define MAXDO_1   7
+#define MAXCS_1   6
+#define MAXCLK_1  5
+
+#define MAXDO_2   10
+#define MAXCS_2   9
+#define MAXCLK_2  8
+
+// initialize Thermocouples 1 and 2
+Adafruit_MAX31855 thermocouple_1(MAXCLK_1, MAXCS_1, MAXDO_1);
+Adafruit_MAX31855 thermocouple_2(MAXCLK_2, MAXCS_2, MAXDO_2);
+
+// Example creating a thermocouple instance with hardware SPI
+// on a given CS pin.
+//#define MAXCS   10
+//Adafruit_MAX31855 thermocouple(MAXCS);
+
+void setup() {
+  Serial.begin(9600);
+ 
+  while (!Serial) delay(1); // wait for Serial on Leonardo/Zero, etc
+
+  //Serial.println("MAX31855 test");
+  // wait for MAX chips to stabilize
+  delay(1000);
+}
+
+void loop() {
+  // basic readout test, just print the current temp
+   //Serial.print("Internal Temp = ");
+   //Serial.println(thermocouple.readInternal());
+
+   double c_1 = thermocouple_1.readCelsius();
+   double c_2 = thermocouple_2.readCelsius();
+   if (isnan(c_1))
+   {
+      Serial.print("e,");
+   }
+   else
+   {
+      Serial.print(String(c_1)+",");
+   }
+   if (isnan(c_2))
+   {
+      Serial.print("e");
+   }
+   else
+   {
+      Serial.println(String(c_2));
+   }
+   //Serial.print("F = ");
+   //Serial.println(thermocouple.readFarenheit());
+ 
+   delay(1000);
+}
