@@ -120,7 +120,7 @@ The data you just took using the LCR meter should all be inside a folder and in 
 This program, `txt-xlsx.py` is entirely console based program (no graphics like the other one). This may seem a bit difficult at first but in reality it is quite simple. The two main functionalities of this program are Convert and Plot. Below are detailed descriptions of both.
 
 ## Analysis Setup
-In order for this program to run on your computer, you need to make sure you have Python installed. Python is one of the biggest and more important programming languages in the world. If you are new to it I highly recommend you play around with it, as it is incredibly useful to research and data collection/processing.  If you need help installing it, watch [this video.](https://www.youtube.com/watch?v=rVb1TqqbPj0)
+In order for this program to run on your computer, you need to make sure you have Python installed. Python is one of the biggest and more important programming languages in the world. If you are new to it I highly recommend you play around with it, as it is incredibly useful to research and data collection/processing.  If you need help installing it, watch [this video.](https://www.youtube.com/watch?v=OV9WlTd9a2U)
 
 
 Once Python is up and running on your computer you need to install a few Python packages to run my program. If you are on windows open Command Line or Terminal if you are on MacOS, then enter the following commands one by one:
